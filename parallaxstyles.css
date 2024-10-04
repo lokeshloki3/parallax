@@ -1,0 +1,112 @@
+/* universal selector */
+*{
+    padding: 0;
+    margin: 0;
+    /* Content size small if we add padding and margin */
+    box-sizing: border-box;
+}
+
+.wrapper{
+    /* all code inside wrapper so height of wrapper should be equal to maximum height of viewport that is 100vh */
+    height: 100vh;
+    /* y axis scroll off */
+    overflow-x: hidden;
+    overflow-y: auto;
+    /* enable 3d axis */
+    perspective: 10px;
+}
+
+.container{
+    /* nearest positioned parent for absolute - non static position */
+    /* do position-relative is needed here ? */
+    position: relative;
+    height: 100%;
+    /* for adventure text in center */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    /* default z-index is 0 - do z-index is needed here ? - Yes as below text and images should be above it*/
+    z-index: -1;
+}
+
+.background , .foreground{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    /* object-fit - specify how an <img> or <video>
+    should be resized to fit its container
+    apsect ratio of photo is maintained*/ 
+    object-fit: cover;
+    /* layering in 3d by z-index */
+    z-index: -1;
+}
+
+.background{
+    transform: translateZ(-40px) scale(5);
+}
+
+.foreground{
+    transform: translateZ(-20px) scale(3);
+}
+
+h1{
+    position: absolute;
+    /* font-size: 125px; */
+    font-size: 10rem;
+    color: white;
+    letter-spacing: 4px;
+    top: 5rem;
+    text-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+section{
+    background-color: rgb(45,45,45);
+    color: white;
+    padding: 5rem 0;
+}
+
+.secHeading{
+    font-size: 5rem;
+    padding: 0 10rem;
+}
+
+.text{
+    font-size: 1.1rem;
+    padding:0 10rem ;
+    margin: 5rem 0;
+}
+
+.bg1{
+    background-image: url(sport-1.jpg);
+}
+
+.bg2{
+    background-image: url(sport-2.jpg);
+}
+
+.bg3{
+    background-image: url(sport-3.jpg);
+}
+
+.bg{
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+    /* needed for desc absolute */
+    position: relative;
+    /* can be commented here*/
+    /* width: 100%; */
+}
+
+.desc{
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    font-size: 50px;
+    color: black;
+    /* as everything is written in box in css */
+    background-color: white;
+    padding: 4px 4px;
+}
